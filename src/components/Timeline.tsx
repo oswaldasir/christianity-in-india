@@ -38,21 +38,45 @@ export const Timeline = ({ onImageClick }: { onImageClick: (item: Item) => void 
           <h2 className="text-3xl md:text-4xl font-serif font-bold text-slate-900 mb-6">Overview</h2>
           
           <div className="space-y-6 text-slate-700 leading-relaxed text-base">
+            
             <p>
-              <strong>Christianity in India</strong> is a visual, chronological digital archive documenting the development of Christianity across India. It brings together the people, movements, missions, literature, education, music, social reform and indigenous Christian leadership that shaped the Indian Christian story.
+              Acts is the only New Testament book that ends without a blessing, doxology, or the word “Amen.” Its ending is deliberately narrative, rather than a Pauline-style doxological conclusion.
             </p>
             
             <p>
-              The timeline presents <strong>60 historical figures and pioneers</strong>, spanning different periods and regions, with particular attention to South Indian Christian history, Tamil Christian literature and hymnody, missionary movements, education, translation, medicine and the emergence of Indian church leadership.
+              The book ends with Paul in Rome, still “preaching the kingdom of God and teaching concerning the Lord Jesus Christ… with all confidence, no one forbidding him” (Acts 28:31).
+            </p>
+            
+            <p className="text-lg font-medium text-slate-900 italic">
+              Perhaps that is the point.<br />
+              The book ends. The Gospel does not.
             </p>
             
             <p>
-              Rather than presenting Christianity in India only through foreign missionaries, the archive also highlights <strong>Indian Christian contributors</strong>—including poets, scholars, musicians and indigenous bishops. For example, the timeline includes Mayuram Vedanayakam Pillai and H. A. Krishnapillai among its literary figures, and V. S. Azariah as an indigenous Anglican bishop.
+              Beyond the pages of Acts, that mission continued—and, according to ancient Christian tradition, reached a land thousands of miles away: India.
             </p>
             
             <p>
-              The project is therefore intended as more than a missionary chronology. It is a <strong>living historical archive of people and movements that contributed to the formation of Christianity in India</strong>, presented in an accessible format for students, researchers, churches, families and anyone interested in India's Christian heritage.
+              According to this tradition, Thomas the Apostle came to India in the first century. Centuries later, missionaries, translators, educators, physicians, poets, musicians, and Indian Christian leaders would shape new chapters of this story.
             </p>
+            
+            <p>
+              From Thomas the Apostle to Sadhu Sundar Singh, from ancient Christian communities to indigenous leadership, and from Tamil Christian literature and hymnody to education, medicine, and social reform—how did Christianity become part of India's story?
+            </p>
+            
+            <p>
+              Rather than presenting this history only through foreign missionaries, this archive also highlights Indian Christian contributors—including poets, scholars, musicians, and indigenous bishops such as Mayuram Vedanayakam Pillai, H. A. Krishnapillai, and V. S. Azariah.
+            </p>
+            
+            <p>
+              It is therefore more than a missionary chronology. It is a living historical archive of people and movements that contributed to the formation of Christianity in India.
+            </p>
+            
+            <div className="border-l-4 border-[#1976a8] pl-5 py-2 my-8">
+              <p className="text-slate-600 mb-1">Some became famous.</p>
+              <p className="text-slate-600 mb-2">Many were forgotten.</p>
+              <p className="font-semibold text-slate-900">But together, their stories tell how the Gospel continued—after Acts, and in India.</p>
+            </div>
             
             <p className="pt-4 border-t border-slate-200/60 font-medium text-slate-900">
               Curated & developed by Anbu Oswald Asir.
@@ -219,6 +243,14 @@ export const Timeline = ({ onImageClick }: { onImageClick: (item: Item) => void 
             </div>
           </div>
         ))}
+        
+        {/* Timeline Conclusion */}
+        <div className="text-center py-16 px-6">
+          <div className="w-16 h-1 bg-gradient-to-r from-[#9a6418] to-[#1976a8] mx-auto mb-8 rounded-full opacity-50"></div>
+          <h3 className="text-2xl md:text-3xl font-serif font-bold text-slate-900 italic">
+            The narrative ends—but the Gospel continues without hindrance.
+          </h3>
+        </div>
       </div>
     </div>
   );

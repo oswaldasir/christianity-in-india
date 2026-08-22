@@ -1,4 +1,47 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+
+const Typewriter = ({ words }: { words: string[] }) => {
+  const [index, setIndex] = useState(0);
+  const [subIndex, setSubIndex] = useState(0);
+  const [blink, setBlink] = useState(true);
+  const [reverse, setReverse] = useState(false);
+
+  useEffect(() => {
+    const timeout2 = setTimeout(() => setBlink((prev) => !prev), 500);
+    return () => clearTimeout(timeout2);
+  }, [blink]);
+
+  useEffect(() => {
+    if (index === words.length) {
+      setIndex(0);
+      return;
+    }
+    
+    if (subIndex === words[index].length + 1 && !reverse) {
+      const timeout = setTimeout(() => setReverse(true), 2000);
+      return () => clearTimeout(timeout);
+    }
+
+    if (subIndex === 0 && reverse) {
+      setReverse(false);
+      setIndex((prev) => (prev + 1) % words.length);
+      return;
+    }
+
+    const timeout = setTimeout(() => {
+      setSubIndex((prev) => prev + (reverse ? -1 : 1));
+    }, reverse ? 50 : 150);
+
+    return () => clearTimeout(timeout);
+  }, [subIndex, index, reverse, words]);
+
+  return (
+    <>
+      {words[index].substring(0, subIndex)}
+      <span className={`inline-block w-[2px] transition-opacity duration-100 font-sans font-light -translate-y-1 ml-[1px] ${blink ? 'opacity-100' : 'opacity-0'}`}>|</span>
+    </>
+  );
+};
 
 export const Layout = ({ children }: { children: React.ReactNode }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -60,8 +103,11 @@ export const Layout = ({ children }: { children: React.ReactNode }) => {
             52 CE → 20th Century • 60 Pioneering Lives
           </p>
           <h1 className="text-5xl md:text-6xl lg:text-7xl font-serif font-bold tracking-tight leading-[1.1] mb-8 text-slate-900">
-            Tracing the Unbroken Thread of <br className="hidden md:block"/>
-            <em className="italic text-transparent bg-clip-text bg-gradient-to-r from-[#9a6418] to-[#c58a2b] font-normal">Faith in the Subcontinent.</em>
+            Tracing the Flame of <br className="hidden md:block"/>
+            <em className="italic text-transparent bg-clip-text bg-gradient-to-r from-[#9a6418] to-[#c58a2b] font-normal">
+              <Typewriter words={['Faith', 'Mission', 'Revival']} />
+            </em> <br className="hidden md:block"/>
+            Across the Indian Subcontinent
           </h1>
           <p className="max-w-2xl text-slate-600 text-lg leading-relaxed mb-12">
             Explore two millennia of devotion through the lives of apostolic pioneers, classical poets, dedicated physicians, and visionary educators who wove the teachings of Christ into the rich cultural tapestry of India.
