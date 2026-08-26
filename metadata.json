@@ -1,6 +1,6 @@
 {
-  "name": "",
-  "description": "",
+  "name": "Christianity in India Archive",
+  "description": "Tracing the Flame of Faith, Mission & Revival Across the Indian Subcontinent.",
   "requestFramePermissions": [],
   "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
 }
